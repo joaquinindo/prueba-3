@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="ion-margin-top azul">
+    <ion-title>Bienvenido</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-button class="verde" expand="block"> Hola Bienvenido </ion-button>
+  <ion-img src="assets\images\listo.svg"></ion-img>
+
+
+  <ion-list lines="full">
+    <ion-item *ngFor="let barcode of barcodes">
+      <ion-label>{{ barcode.format }}</ion-label>
+      <ion-input type="text" [value]="barcode.rawValue" readonly="true"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-card class="attendance-card custom-card">
+    <ion-card-content class="ion-text-center custom-card-content">
+      <h3>Porcentaje de Asistencia</h3>
+      <p>{{ attendancePercentage }}%</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list>
+    <ion-card *ngFor="let data of processedData" class="custom-card" lines="full">
+      <ion-card-content class="card-content">
+        <p class="text-black"><strong>Sección:</strong> {{ data.Seccion }}</p>
+        <p class="text-black"><strong>Asignatura:</strong> {{ data.Asignatura }}</p>
+        <p class="text-black"><strong>Sala:</strong> {{ data.Sala }}</p>
+        <p class="text-black"><strong>Fecha:</strong> {{ data.Fecha }}</p>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="scan()" [disabled]="!isSupported">
+      <ion-icon name="scan"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

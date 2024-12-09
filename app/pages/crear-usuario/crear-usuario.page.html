@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="ion-margin-top azul">
+    <ion-title>Crear Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-img src="assets\images\login.svg"></ion-img>
+  <ion-item class="ion-margin-top">
+    <ion-input [(ngModel)]="mdl_usuario" label="Usuario" labelPlacement="floating"> 
+    </ion-input>
+  </ion-item>
+  <ion-item class="ion-margin-top">
+    <ion-input [(ngModel)]="mdl_nombre" label="Nombre" labelPlacement="floating"> 
+    </ion-input>
+  </ion-item>
+  <ion-item class="ion-margin-top">
+    <ion-input [(ngModel)]="mdl_contrasena" label="Contraseña" type="password" labelPlacement="floating"> 
+    </ion-input>
+  </ion-item>
+
+  <ion-button class="ion-margin-top azul" expand="block" (click)="crearUsuario()"> Crear Usuario </ion-button>
+</ion-content>
